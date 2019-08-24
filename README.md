@@ -1,4 +1,4 @@
-This repo contains the first version of slides that i used to teach course "Introduction to Data Science" using RStudio in [Estación Lastarria Cowork](www.estacionlastarria.cl) in 2017 (Spanish).
+This repo contains the first version of slides that i used to teach course "Introduction to Data Science" using RStudio in [Estación Lastarria Cowork](www.estacionlastarria.cl) in 2017-2018 (Spanish).
 
 The course was splitted into 4 parts: 
 1) Introduction + Data fundamentals
