@@ -6,5 +6,5 @@ The course was splitted into 4 parts:
 3) Exploratory analysis + Visualization
 4) Modelling and Reporting
 
-I used different resources and references, but mainly material and contents from data science diplomas of Universidad de Chile and Universidad Del Desarrollo
+I used different resources and references, but mainly material and contents from data science diplomas of [Universidad de Chile](https://www.dcc.uchile.cl/node/1681) and [Universidad Del Desarrollo](https://ingenieria.udd.cl/ver-diplomado/diplomado-en-data-science-2/)
 
