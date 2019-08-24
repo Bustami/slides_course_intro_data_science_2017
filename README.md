@@ -8,3 +8,4 @@ The course was splitted into 4 parts:
 
 I used different resources and references, but mainly material and contents from data science diplomas of [Universidad de Chile](https://www.dcc.uchile.cl/node/1681) and [Universidad Del Desarrollo](https://ingenieria.udd.cl/ver-diplomado/diplomado-en-data-science-2/)
 
+Disclaimer: Currently i recommend to learn "tidyverse" and pipelines (%>%) before than base R.
