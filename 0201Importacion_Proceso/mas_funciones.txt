@@ -1,0 +1,15 @@
+ls()
+
+
+sqrt()
+
+
+rnorm()
+set.seed()
+ 
+
+
+
+
+
+
