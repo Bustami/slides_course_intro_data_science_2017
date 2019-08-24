@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Introducción a la Ciencia de Datos</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Introducción a la Ciencia de Datos">
+  <meta name="author" content="Ismael Gómez Schmidt @ismaelgomezs">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+      <slide class="nobackground">
+    <article class="flexbox vcenter">
+      <span>
+        <img width='100%' src="assets/img/fondo.jpg">
+      </span>
+    </article>
+  </slide>
+    <slide class="title-slide segue nobackground">
+  <aside class="gdbar">
+    <img src="assets/img/lastarria.png">
+  </aside>
+  <hgroup class="auto-fadein">
+    <h1>Introducción a la Ciencia de Datos</h1>
+    <h2>Sesión 2 Importación, limpieza y proceso de datos</h2>
+    <p>Ismael Gómez Schmidt @ismaelgomezs<br/>Data Scientist</p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <article data-timings="">
+    <style>
+.title-slide {
+  background-color: white; 
+}
+
+.title-slide hgroup > h1{
+ font-family: 'Oswald', 'Helvetica', sanserif; 
+}
+
+.title-slide hgroup > h1{
+  color: black;
+}
+
+.title-slide hgroup > h2 {
+  color: #3182bd;
+}
+
+.title-slide hgroup > p {
+  color: #2b323f;
+}
+</style>
+
+<h2>Contenido de Sesión 2</h2>
+
+<p><center><img src="assets/img/data-science-workflow1.png" width="70%" ></center></p>
+
+<ul class = "build incremental">
+<li><p>Importación de datos en R Studio</p></li>
+<li><p>Concepto de Tidy Data</p></li>
+<li><p>Criterios y ejemplos de uso de librerías/funciones para proceso de datos en R Studio</p></li>
+<li><p>El proceso de datos lo separaremos en 3 etapas: <code>revisión, limpieza/extracción y creación/transformación</code></p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>Importando .CSV</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Usaremos el archivo CSV con los datos de clasificatorias mundialistas Conmebol entre 1998 y 2014 como ejemplo. <a href="https://1drv.ms/u/s!Av711V0Z9tyUhu8_wgnZVukywNPzdA">Descargar acá</a>.</p>
+
+<pre><code class="r">data &lt;- read.csv(file=&#39;clasif_conmebol_9814.csv&#39;, header=T, stringsAsFactors=F, encoding=&#39;utf8&#39;)
+</code></pre>
+
+<ul class = "build incremental">
+<li><p>No olvidar incluir correctamente la ruta del archivo. Se sugiere tenerlo en el mismo <code>Work Directory</code>.</p></li>
+<li><p>En <code>Help</code> o con &quot;<code>?Nombrefuncion</code>&quot; es posible ver los detalles de cada función.</p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>Funciones básicas para Revisión</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">names(data) # Para ver los nombres de las columnas
+str(data)   # Para ver el tipo o la clase del objeto y de sus atributos
+dim(data)   # Para ver las dimensiones de la tabla (filas y columnas)
+head(data)  # Para ver las primeras X filas del objeto
+tail(data)  # Para ver las últimas X filas del objeto
+</code></pre>
+
+<ul class = "build incremental">
+<li><p>El operador <code>$</code> nos permite elegir una columna específica por su nombre. Ejemplo: 
+<code>data$Equipo</code></p></li>
+<li><p>También se pueden seleccionar filas y columnas específicas con la notación que utiliza <code>[]</code>, <code>:</code>, <code>-</code> y <code>c()</code>.</p></li>
+<li><p>Ejemplo 1: Cambiar nombre de columnas</p></li>
+<li><p>Ejemplo 2: Crear nuevos atributos</p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Importando .TXT</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Usaremos el archivo TXT con datos de IMDB acerca de películas. <a href="https://1drv.ms/f/s!Av711V0Z9tyUhu16kJWdiHd4zU5Edg">Descargar acá</a>.</p>
+
+<pre><code class="r">data2 &lt;- read.table(&#39;movies.txt&#39;, header=TRUE)
+</code></pre>
+
+<ul class = "build incremental">
+<li><p>Ejemplo 3: Cómo subseleccionar o filtrar datos específicos: <code>&amp;</code>, <code>|</code>, <code>==</code></p></li>
+<li><p>Ejemplo 4: Ordenar datos según valores de atributos con función <code>order()</code></p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-5" style="background:;">
+  <hgroup>
+    <h2>Importando .XLS o .XLSX</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><p>Usaremos un archivo XLSX con datos de mediciones de ruido de fondo diurnas y nocturnas en sectores rurales del sur de Chile. <a href="https://1drv.ms/x/s!Av711V0Z9tyUhu9ADYlRJqmbbbZQUQ">Descargar acá</a>.</p></li>
+<li><p>Para importar este tipo de archivos es necesario instalar y cargar una librería específica:</p></li>
+</ul>
+
+<pre><code class="r"> #install.packages(&#39;readxl&#39;)
+ library(readxl)
+
+ data3_h1 &lt;- read_excel(&#39;datos_ruido_y_viento.xlsx&#39;, sheet=1)
+ data3_h2 &lt;- read_excel(&#39;datos_ruido_y_viento.xlsx&#39;, sheet=2)
+
+ # Probar parámetros &quot;skip&quot;, &quot;n_max&quot; y &quot;range&quot;
+</code></pre>
+
+<ul class = "build incremental">
+<li><p>Ejemplo 5: Completar datos de columna Proyecto</p></li>
+<li><p>Ejemplo 6: Uso de funciones <code>summary()</code> y <code>table()</code></p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-6" style="background:white;">
+  <hgroup>
+    <h2>Otras librerías</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><code>openxlsx</code> es otra para .XLSX (buen rendmiento para archivos grandes)</li>
+<li><code>pdftools</code> y <code>tabulizer</code> para .PDF</li>
+<li><code>foreign</code> para .DBF y otras bases de datos</li>
+<li><code>RSQLite</code> para conectarse a databases</li>
+<li><code>qpcR</code> para .HTML y .XML</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-7" style="background:;">
+  <hgroup>
+    <h2>Librería devtools</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><p>Permite importar librerías no oficiales de <a href="https://cran.r-project.org">CRAN</a> desde otras fuentes, como por ejemplo Github.</p></li>
+<li><p>Son desarrolladas por la comunidad y <code>muchas veces son sumamente útiles</code>.</p></li>
+</ul>
+
+<pre><code class="r"> #install.packages(&#39;devtools&#39;)
+ library(devtools)
+ #install_github(&quot;DeveloperName/PackageName&quot;)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-8" style="background:;">
+  <hgroup>
+    <h2>Más funciones para Revisión</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r"> nrow(data); ncol(data)  # Número de filas y número de columnas
+ length(data)            # Largo de un vector o elemento
+ nchar(data[1,1])        # Número de caracteres de un elemento
+</code></pre>
+
+<ul class = "build incremental">
+<li><p>Ejemplo 7: Obtener la cantidad de <code>casos completos</code> y de <code>NA</code> de algún atributo. Funciones <code>complete.cases()</code> &amp; <code>is.na()</code></p></li>
+<li><p>Ejemplo 8: Obtener los valores o nombres únicos de algún atributo. Función <code>unique()</code></p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-9" style="background:;">
+  <hgroup>
+    <h2>Funciones para Limpieza de datos</h2>
+  </hgroup>
+  <article data-timings="">
+    <h1>Limpieza de texto (1)</h1>
+
+<pre><code class="r"> substr(data3_h1$hora, 12, 19)  # Seleccionar caracteres específicos de un string
+ gsub(&#39;Vivienda&#39;, &#39;Edificación&#39;, data3_h1[, 3]) # Reemplazar texto por otro texto
+ grep(&#39;&#39;, data)                    # Para encontrar string que cumplen una regex 
+ #(como el gsub pero sin reemplazar)
+
+ tolower(data)       # Convertir todo a minúsculas
+ toupper(data)       # Convertir todo a mayúsculas
+ trimws(data)        # Para borrar espacios
+</code></pre>
+
+<ul class = "build incremental">
+<li><p>Para aprender más de expresiones regulares en R ir <a href="http://stat.ethz.ch/R-manual/R-devel/library/base/html/regex.html">acá</a></p></li>
+<li><p>Ejemplo 9: Extraer la cantidad de pisos de las edificaciones</p></li>
+<li><p>Ejemplo 10: Buscar todas las películas que tienen la palabra &#39;time&#39; en su nombre o título </p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-10" style="background:;">
+  <hgroup>
+    <h2>Funciones para Limpieza de datos</h2>
+  </hgroup>
+  <article data-timings="">
+    <h1>Limpieza de texto (2)</h1>
+
+<pre><code class="r"> library(stringr)    # Para más funciones
+ library(stringdist) # Para búsqueda por similitud, match de textos. 
+ # La función &#39;amatch()&#39; es muy útil
+
+ paste()       # Para concatenar caracteres
+ formatC(&#39;&#39;)   # Para setear strings con longitud fija. Ej: Días con dos dígitos.
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-11" style="background:;">
+  <hgroup>
+    <h2>Funciones para Limpieza de datos</h2>
+  </hgroup>
+  <article data-timings="">
+    <h1>Filtrar y/o subseleccionar</h1>
+
+<pre><code class="r"> which(data&gt;0) # Para obtener la ubicación (fila, índice, etc.) de los datos que cumplen 
+# uno o más criterios. También se usa which.max() y which.min()
+
+ library(dplyr)
+ subset(data, Pts &gt; mean(Pts) &amp; Pos.&gt;=5, select=c(Equipo, Pts, Pos., Clasif)) 
+# Para subseleccionar filas según algún criterio y las columnas específicas
+ filter(data) # Para filtrar por múltiples criterios
+
+# bonus de la librería:
+arrange(data) # Para ordenar los datos según varios niveles, parámetro desc() para descendente
+mutate(data) # Para crear nuevos atributos
+</code></pre>
+
+<ul class = "build incremental">
+<li>Ejemplo 11: Crear un nuevo data frame que contenga únicamente las películas desde la década del 90 en adelante y que tengan un rating mayor a la mediana del mismo, sin incluir los atributos &#39;r&#39;. Luego ordenarlas por año y ranking, de manera descendente.</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-12" style="background:;">
+  <hgroup>
+    <h2>Funciones para Transformación de datos</h2>
+  </hgroup>
+  <article data-timings="">
+    <h1>Convertir tipos de variables u objetos</h1>
+
+<pre><code class="r">as.numeric()        # Para convertir a variable numérica
+as.character()      # Para convertir a caracter
+as.data.frame(data) # Para convertir a data frame
+as.factor(data$Equipo)     # Para convertir a factor (variable categórica)
+
+### as.Date        # Para convertir a objeto de Fecha
+
+# Sys.time()
+# Sys.Date()
+# Sys.timezone()  # Chile/Continental
+</code></pre>
+
+<ul class = "build incremental">
+<li><p>Ejemplo 12: Asumir que todas las películas se crearon el primero de enero del año indicado para crear una nueva variable fecha con el formato &#39;%Y-%m-%d&#39; (para ver detalles de formatos <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/strptime.html">acá</a>)</p></li>
+<li><p>Ejemplo 13: Calcular cuántas mediciones se hicieron en días de semana (lun-vier) y cuántas en días de fin de semana (diurnas y nocturnas). Función <code>weekdays()</code>.</p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-13" style="background:;">
+  <hgroup>
+    <h2>Funciones para Transformación de datos</h2>
+  </hgroup>
+  <article data-timings="">
+    <h1>Más Fechas!!</h1>
+
+<pre><code class="r">library(lubridate)
+#year()
+#month()
+#day()
+
+library(zoo)
+#as.yearmon()
+
+# Sys.getlocale(&quot;LC_TIME&quot;)
+# Sys.setlocale(&quot;LC_TIME&quot;, &quot;English&quot;) 
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="segue" id="slide-14" style="background:darkblue;">
+  <hgroup>
+    <h2>Tidy Data</h2>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-15" style="background:;">
+  <hgroup>
+    <h2>Tidy data</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul class = "build incremental">
+<li><p>Se trata de criterios de estructuración de datasets tabulares para facilitar su proceso y análisis. Propuesto por Hadley Wickham, el gurú de R. <a href="http://vita.had.co.nz/papers/tidy-data.pdf">Acá el paper</a>.</p></li>
+<li><p>Las reglas son:</p></li>
+<li><p>1) Cada atributo o variable debe formar una columna</p></li>
+<li><p>2) Cada observación, muestra o ejemplo debe formar una fila</p></li>
+<li><p>3) Cada tipo de &quot;unidad de observación&quot; debe formar una sola tabla.</p></li>
+<li><p>4)* Cada valor debe estar en su propia celda</p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-16" style="background:;">
+  <hgroup>
+    <h2>Tidy data</h2>
+  </hgroup>
+  <article data-timings="">
+    
+<div style='float:left;width:48%;' class='centered'>
+  <ul class = "build incremental">
+<li><center><img src="assets/img/tidydata1.png" "height=80%" width="80%"></center></li>
+<li><center><img src="assets/img/tidydata2.png" "height=40%" width="70%"></center></li>
+</ul>
+
+</div>
+<div style='float:right;width:48%;'>
+  <ul class = "build incremental">
+<li><center><img src="assets/img/tidydata3.png" "height=80%" width="80%"></center></li>
+<li><center><img src="assets/img/tidydata4.png" "height=40%" width="60%"></center></li>
+</ul>
+
+</div>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-17" style="background:;">
+  <hgroup>
+    <h2>Tidy data</h2>
+  </hgroup>
+  <article data-timings="">
+    <h1>La tabla 1 es la única que cumple los criterios</h1>
+
+<p><center><img src="assets/img/tidydata.png" width="85%"></center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-18" style="background:;">
+  <hgroup>
+    <h2>Más funciones para Transformación de datos</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><code>cbind()</code> y <code>rbind()</code> # Para unir columnas y filas de distintos elementos</li>
+<li><code>merge()</code>             # Para hacer <code>joins</code> de bases de datos relacionales</li>
+<li><code>cut()</code>               # Para segmentar una variable numérica en categorías</li>
+<li><code>rep()</code>               # Para definir repitición patrones</li>
+<li><code>seq()</code>               # Para crear secuencias</li>
+<li><code>apply()</code>             # Para aplicar una función a columnas y filas específicas de un elemento</li>
+<li><code>reshape()</code>           # Para convertir filas en columnas y viceversa. Formato ancho o largo</li>
+<li><code>library(data.table)</code> # Muchas utilidades</li>
+</ul>
+
+<ul class = "build incremental">
+<li><p>Ejemplo 14: Unir las mediciones diurnas y nocturnas en un solo data frame</p></li>
+<li><p>Ejemplo 15: Descargar los datos de sobrevivientes del Titanic <a href="https://1drv.ms/u/s!Av711V0Z9tyUhu9Dz6Zqzehp3c-YXA">acá</a> para luego crear grupos de edades de los pasajeros con intervalos cada 10 años.</p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-19" style="background:;">
+  <hgroup>
+    <h2>Programación tradicional</h2>
+  </hgroup>
+  <article data-timings="">
+    <h1>Sentencias <code>if</code></h1>
+
+<pre><code class="r">if(1&gt;0)
+{
+
+}
+
+# if.else()
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-20" style="background:;">
+  <hgroup>
+    <h2>Programación tradicional</h2>
+  </hgroup>
+  <article data-timings="">
+    <h1>Ciclos <code>for</code></h1>
+
+<pre><code class="r">for (i in 1:10)
+{
+
+}
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-21" style="background:;">
+  <hgroup>
+    <h2>Bonus track: scraping de .HTML &quot;simple&quot;</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">  #install.packages(&#39;rvest&#39;)
+  library(rvest)
+</code></pre>
+
+<ul class = "build incremental">
+<li>Ejemplo 16: Usar al menos una sentencia <code>if</code> y un ciclo <code>for</code> para scrapear las tablas de posiciones de las fases de grupos de Copa Libertadores entre 2011 y 2017 desde el sitio web de <a href="http://www.espn.cl/futbol/posiciones/_/liga/conmebol.libertadores/season/">ESPN</a></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-22" style="background:;">
+  <hgroup>
+    <h2>Programación tradicional</h2>
+  </hgroup>
+  <article data-timings="">
+    <h1>Funciones propias</h1>
+
+<pre><code class="r">mi_funcion &lt;- function(input1=0, input2=0)
+              {
+                salida &lt;- input1 + input2
+                salida
+              }
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-23" style="background:;">
+  <hgroup>
+    <h2>Exportación a .CSV</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r"> # write.csv(data, &#39;data.csv&#39;, row.names=F)
+
+ # remove()
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='NA'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Importando .CSV'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Funciones básicas para Revisión'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Importando .TXT'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='Importando .XLS o .XLSX'>
+         5
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=6 title='Otras librerías'>
+         6
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=7 title='Librería devtools'>
+         7
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=8 title='Más funciones para Revisión'>
+         8
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=9 title='Funciones para Limpieza de datos'>
+         9
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=10 title='Funciones para Limpieza de datos'>
+         10
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=11 title='Funciones para Limpieza de datos'>
+         11
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=12 title='Funciones para Transformación de datos'>
+         12
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=13 title='Funciones para Transformación de datos'>
+         13
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=14 title='Tidy Data'>
+         14
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=15 title='Tidy data'>
+         15
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=16 title='Tidy data'>
+         16
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=17 title='Tidy data'>
+         17
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=18 title='Más funciones para Transformación de datos'>
+         18
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=19 title='Programación tradicional'>
+         19
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=20 title='Programación tradicional'>
+         20
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=21 title='Bonus track: scraping de .HTML &quot;simple&quot;'>
+         21
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=22 title='Programación tradicional'>
+         22
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=23 title='Exportación a .CSV'>
+         23
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>

@@ -1,0 +1,12 @@
+base
+readxl
+xml2
+rvest
+devtools
+stringr
+stringdist
+dplyr
+lubridate
+zoo
+data.table
+usethis

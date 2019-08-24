@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Introducción a la Ciencia de Datos</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Introducción a la Ciencia de Datos">
+  <meta name="author" content="Ismael Gómez Schmidt @ismaelgomezs">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+      <slide class="nobackground">
+    <article class="flexbox vcenter">
+      <span>
+        <img width='100%' src="assets/img/fondo.jpg">
+      </span>
+    </article>
+  </slide>
+    <slide class="title-slide segue nobackground">
+  <aside class="gdbar">
+    <img src="assets/img/lastarria.png">
+  </aside>
+  <hgroup class="auto-fadein">
+    <h1>Introducción a la Ciencia de Datos</h1>
+    <h2>Sesión 4 - Parte II - Comunicación/Publicación de resultados</h2>
+    <p>Ismael Gómez Schmidt @ismaelgomezs<br/>Data Scientist</p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <article data-timings="">
+    <style>
+.title-slide {
+  background-color: white; 
+}
+
+.title-slide hgroup > h1{
+ font-family: 'Oswald', 'Helvetica', sanserif; 
+}
+
+.title-slide hgroup > h1{
+  color: black;
+}
+
+.title-slide hgroup > h2 {
+  color: #3182bd;
+}
+
+.title-slide hgroup > p {
+  color: #2b323f;
+}
+
+
+</style>
+
+<h2>Contenido de Sesión 4 - Parte II</h2>
+
+<p><center><img src="assets/img/data-science-workflow1.png" width="65%" ></center></p>
+
+<ul class = "build incremental">
+<li><p>R Markdown, librería <code>knitr</code> y R notebooks</p></li>
+<li><p>Shiny</p></li>
+<li><p>Google Data Studio</p></li>
+<li><p>Otras herramientas</p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>R Markdown</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><center><img src="assets/img/rmark.png" width="15%" ></center></p>
+
+<ul class = "build incremental">
+<li><p>Librería que permite crear y dar formato a documentos de texto como HTML, PDF, Word, etc.</p></li>
+<li><p>No es necesario instalarla (<a href="https://rmarkdown.rstudio.com">viene con R Studio</a>), pero sí se requiere la librería <code>knitr</code> para compilar.</p></li>
+<li><p>Es parte del proceso que incluye la comunicación de resultados, el trabajo colaborativo, la reproducibilidad y &quot;hacer ciencia de datos&quot; con los notebooks.</p></li>
+<li><p>Con esto es posible incluir texto, código, imágenes, gráficos, etc.</p></li>
+<li><p>El archivo base tiene extensión <code>.Rmd</code> (todos los slides del taller están hechos con R markdown)</p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>Pasos básicos</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul class = "build incremental">
+<li><p>1) Crear nuevo archivo &quot;R Markdown...&quot; con extensión .Rmd para HTML y guardarlo</p></li>
+<li><p>2) Instalar y cargar la librería <code>knitr</code></p></li>
+<li><p>3) Presionar botón &quot;Knit&quot;</p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Sugerencias a revisar</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul class = "build incremental">
+<li><p>La sintaxis, configuración y detalles principales se encuentran en este <a href="https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf">Cheat Sheet</a></p></li>
+<li><p>Para exportar a PDF instalar <a href="https://miktex.org/download">MikTEX</a> (en Windows)</p></li>
+<li><p>Librerías <code>slidify</code> y <code>revealjs</code> para creación de slides o presentaciones</p></li>
+<li><p>La diferencia con R Notebook es que este permite ejecutar código &quot;in situ&quot; y previsualizar resultados (no es ncesario &quot;knitear&quot; el documento completo)</p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="segue" id="slide-5" style="background:#2b8cbe;">
+  <hgroup>
+    <h2>Shiny</h2>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-6" style="background:;">
+  <article data-timings="">
+    <p><center><img src="assets/img/shiny.jpg" width="15%" ></center></p>
+
+<ul class = "build incremental">
+<li><p>Librería que permite levantar aplicaciones interactivas desde R Studio, ya sea de manera local como en servidor remoto.</p></li>
+<li><p>Busca reducir la dificultad de programación. No es necesario tener habilidades de desarrollo web.</p></li>
+<li><p>Apunta a la comunicación de resultados y a la experiencia del usuario final, por lo tanto contempla aspectos técnicos (archivo o parte <code>server.R</code>), de usabilidad y estética (archivo o parte <code>ui.R</code>).</p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-7" style="background:;">
+  <hgroup>
+    <h2>ui y server</h2>
+  </hgroup>
+  <article data-timings="">
+    
+<div style='float:left;width:48%;' class='centered'>
+  <ul class = "build incremental">
+<li><center><img src="assets/img/ui.png" height="100%" ></center></li>
+</ul>
+
+</div>
+<div style='float:right;width:48%;'>
+  <ul class = "build incremental">
+<li><center><img src="assets/img/server.png" height="100%" width="90%" ></center> </li>
+</ul>
+
+</div>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-8" style="background:;">
+  <hgroup>
+    <h2>Pasos básicos</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul class = "build incremental">
+<li><p>1) Es necesario instalar y cargar la librería <code>shiny</code>.</p></li>
+<li><p>2) Crear nuevo(s) archivo(s) &quot;Shiny Web App...&quot; con la opción &quot;Multiple File&quot;, dándole nombre a la app y en una nueva carpeta dentro del work directory (wd)</p></li>
+<li><p>3) Abrir cualquiera de los dos archivos (server o ui) y presionar &quot;Run App&quot;</p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-9" style="background:;">
+  <hgroup>
+    <h2>Sugerencias a revisar</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul class = "build incremental">
+<li><p><a href="https://github.com/rstudio/cheatsheets/raw/master/shiny.pdf">Cheat Sheet</a></p></li>
+<li><p>Para publicar en servidor remoto de manera gratuita (con limitaciones), crear una cuenta en <a href="http://www.shinyapps.io">shinyapps.io</a> y usar la librería <code>devtools</code> para deploy.</p></li>
+<li><p>Para usar <a href="http://rstudio.github.io/shinydashboard/">templates tipo dashboards</a></p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="segue" id="slide-10" style="background:#2b8cbe;">
+  <hgroup>
+    <h2>Google Data Studio</h2>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-11" style="background:;">
+  <hgroup>
+    <h2><a href="https://datastudio.google.com/navigation/reporting">Google Data Studio</a></h2>
+  </hgroup>
+  <article data-timings="">
+    <ul class = "build incremental">
+<li><p>Herramienta de Google que permite crear y compartir dashboards personalizados.</p></li>
+<li><p>Solo basta crear una cuenta con un correo electrónico asociado</p></li>
+<li><p>Es gratuito</p></li>
+<li><p>Permite conectar datos de Analytics, Adwords, Youtube, Facebook, Search Console, entre otros.</p></li>
+<li><p>Además permite importar bases de datos (MySQL, PostgreSQL), archivos CSV, etc.</p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-12" style="background:;">
+  <hgroup>
+    <h2>Otras herramientas</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul class = "build incremental">
+<li><p>Librería <code>blogdown</code> (creación de sitios web estáticos desde R Studio)</p></li>
+<li><p>Github (control de versiones, trabajo colaborativo, repositorio, reproducibilidad, open data, etc.)</p></li>
+<li><p>Power BI</p></li>
+<li><p>Tableau</p></li>
+<li><p>Twitter!</p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-13" style="background:white;">
+  <article data-timings="">
+    <p><center><img src="assets/img/bienctm.jpg" height="50%" width="50%"></center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='NA'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='R Markdown'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Pasos básicos'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Sugerencias a revisar'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='Shiny'>
+         5
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=6 title='NA'>
+         6
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=7 title='ui y server'>
+         7
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=8 title='Pasos básicos'>
+         8
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=9 title='Sugerencias a revisar'>
+         9
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=10 title='Google Data Studio'>
+         10
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=11 title='<a href="https://datastudio.google.com/navigation/reporting">Google Data Studio</a>'>
+         11
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=12 title='Otras herramientas'>
+         12
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=13 title='NA'>
+         13
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
