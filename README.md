@@ -4,7 +4,7 @@ The course was splitted into 4 parts:
 
 1) **Introduction**: http://datofutbol.cl/slides_course_intro_data_science_2017/0101Presentacion/index.html 
 
-   + 
+   &
    
    **Data fundamentals**: http://datofutbol.cl/slides_course_intro_data_science_2017/0102Datos/index.html
    
@@ -14,7 +14,7 @@ The course was splitted into 4 parts:
 
 4) **Modelling**: http://datofutbol.cl/slides_course_intro_data_science_2017/0401Modelling/index.html
    
-   +
+   &
    
    **Reporting**: http://datofutbol.cl/slides_course_intro_data_science_2017/0402Communicate/index.html
 
