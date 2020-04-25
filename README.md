@@ -1,7 +1,7 @@
 This repo contains the first version of slides that i used to teach course "Introduction to Data Science" using RStudio in [Estación Lastarria Cowork](www.estacionlastarria.cl) in 2017-2018 (Spanish).
 
 The course was splitted into 4 parts: 
-1) [Introduction](datofutbol.cl/slides_course_intro_data_science_2017/0101Presentacion/index.html) + [Data fundamentals](datofutbol.cl/slides_course_intro_data_science_2017/0102Datos/index.html)
+1) [Introduction](/0101Presentacion/index.html) + [Data fundamentals](datofutbol.cl/slides_course_intro_data_science_2017/0102Datos/index.html)
 2) [Loading and Processing](datofutbol.cl/slides_course_intro_data_science_2017/0201Importacion_Proceso/index.html)
 3) [Exploratory analysis + Visualization](datofutbol.cl/slides_course_intro_data_science_2017/0301Exploracion_Viz/index.html)
 4) [Modelling](http://datofutbol.cl/slides_course_intro_data_science_2017/0401Modelling/index.html) and [Reporting](datofutbol.cl/slides_course_intro_data_science_2017/0402Communicate/index.html)
