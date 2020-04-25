@@ -2,17 +2,17 @@ This repo contains the first version of slides that i used to teach course "Intr
 
 The course was splitted into 4 parts: 
 
-1) **Introduction**: datofutbol.cl/slides_course_intro_data_science_2017/0101Presentacion/index.html 
+1) **Introduction**: http://datofutbol.cl/slides_course_intro_data_science_2017/0101Presentacion/index.html 
    + 
-   **Data fundamentals: datofutbol.cl/slides_course_intro_data_science_2017/0102Datos/index.html
+   **Data fundamentals**: http://datofutbol.cl/slides_course_intro_data_science_2017/0102Datos/index.html
    
-2) **Loading and Processing**: datofutbol.cl/slides_course_intro_data_science_2017/0201Importacion_Proceso/index.html
+2) **Loading and Processing**: http://datofutbol.cl/slides_course_intro_data_science_2017/0201Importacion_Proceso/index.html
 
-3) **Exploratory analysis + Visualization**: datofutbol.cl/slides_course_intro_data_science_2017/0301Exploracion_Viz/index.html
+3) **Exploratory analysis + Visualization**: http://datofutbol.cl/slides_course_intro_data_science_2017/0301Exploracion_Viz/index.html
 
-4) **Modelling**: datofutbol.cl/slides_course_intro_data_science_2017/0401Modelling/index.html
+4) **Modelling**: http://datofutbol.cl/slides_course_intro_data_science_2017/0401Modelling/index.html
    +
-   **Reporting**: datofutbol.cl/slides_course_intro_data_science_2017/0402Communicate/index.html
+   **Reporting**: http://datofutbol.cl/slides_course_intro_data_science_2017/0402Communicate/index.html
 
 I used different resources and references, but mainly material and contents from data science diplomas of:
 
